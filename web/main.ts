@@ -1,20 +1,21 @@
-import './app.css'
-import App from './App.svelte'
+import "./app.css";
+import App from "./App.svelte";
 
 const app = new App({
-  target: document.getElementById('app')
-})
+  target: document.getElementById("app"),
+});
 
-export default app
+export default app;
 
 // Global code
 // import '../styles/app.scss';
-import flamethrower from 'flamethrower-router';
-import { GAPageView } from './util/firebase';
+import flamethrower from "flamethrower-router";
+import { GAPageView } from "./util/firebase";
 
-window.addEventListener('flamethrower:router:end', (e) => {
-    GAPageView()
+window.addEventListener("flamethrower:router:end", (_e) => {
+  console.log("loaded flamethrower");
+  GAPageView();
 });
 
 // Router
-export const router = flamethrower({ prefetch: 'hover', log: false });
+export const router = flamethrower({ prefetch: "hover", log: false });
