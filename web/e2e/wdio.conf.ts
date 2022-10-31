@@ -95,7 +95,7 @@ export const config: Options.Testrunner = {
     // for all available options
     tsNodeOpts: {
       transpileOnly: true,
-      project: "test/tsconfig.json",
+      project: "web/e2e/tsconfig.json",
     },
     // tsconfig-paths is only used if "tsConfigPathsOpts" are provided, if you
     // do please make sure "tsconfig-paths" is installed as dependency
@@ -119,7 +119,7 @@ export const config: Options.Testrunner = {
   // then the current working directory is where your `package.json` resides, so `wdio`
   // will be called from there.
   //
-  specs: ["./features/**/*.feature"],
+  specs: ["web/e2e/features/**/*.feature"],
   // Patterns to exclude.
   exclude: [
     // 'path/to/excluded/files'
@@ -237,7 +237,7 @@ export const config: Options.Testrunner = {
   // If you are using Cucumber you need to specify the location of your step definitions.
   cucumberOpts: {
     // <string[]> (file/dir) require files before executing features
-    require: ["./features/step-definitions/steps.ts"],
+    require: ["web/e2e/features/step-definitions/steps.ts"],
     // <boolean> show full backtrace for errors
     backtrace: false,
     // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
