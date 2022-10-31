@@ -26,3 +26,4 @@ dist-ssr
 static
 .tmp
 tmp
+/reports
