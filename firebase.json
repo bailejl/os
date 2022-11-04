@@ -1,6 +1,0 @@
-{
-  "hosting": {
-    "public": "dist/svelte",
-    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
-  }
-}
