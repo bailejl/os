@@ -14,7 +14,8 @@
     "format-write": "npx prettier --write .",
     "prepare": "husky install",
     "test": "jest",
-    "e2e": "wdio run web/e2e/wdio.conf.ts"
+    "e2e": "wdio run web/e2e/wdio.conf.ts",
+    "svelte-check": "svelte-check"
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"
