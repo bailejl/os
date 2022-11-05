@@ -1,29 +1,29 @@
 const getWorldParams = () => {
-  const params = {
-    foo: 'bar',
-  };
+	const params = {
+		foo: 'bar'
+	};
 
-  return params;
+	return params;
 };
 
 const config = {
-  requireModule: ['ts-node/register'],
-  require: ['src/**/*.ts'],
-  format: [
-    // 'message:e2e/reports/cucumber-report.ndjson',
-    'json:reports/cucumber-report.json',
-    'html:reports/report.html',
-    'summary',
-    'progress-bar',
-  ],
-  formatOptions: { snippetInterface: 'async-await' },
-  worldParameters: getWorldParams(),
-  publishQuiet: true,
+	requireModule: ['ts-node/register'],
+	require: ['steps/**/*.ts', 'utils/**/*.ts', 'support/**/*.ts'],
+	format: [
+		// 'message:e2e/reports/cucumber-report.ndjson',
+		'json:reports/cucumber-report.json',
+		'html:reports/report.html',
+		'summary',
+		'progress-bar'
+	],
+	formatOptions: { snippetInterface: 'async-await' },
+	worldParameters: getWorldParams(),
+	publishQuiet: true
 };
 
 if (process.env.USE_ALLURE) {
-  config.format.push('./src/support/reporters/allure-reporter.ts');
+	config.format.push('./src/support/reporters/allure-reporter.ts');
 } else {
-  config.format.push('@cucumber/pretty-formatter');
+	config.format.push('@cucumber/pretty-formatter');
 }
 export default config;
