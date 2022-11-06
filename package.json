@@ -2,7 +2,10 @@
 	"name": "os",
 	"private": true,
 	"version": "0.0.0",
-	"scripts": {},
+	"scripts": {
+		"test-app": "cd app && npm run test",
+		"test-admin-app": "cd admin-app && npm run test"
+	},
 	"lint-staged": {
 		"**/*": "prettier --write --ignore-unknown"
 	},
