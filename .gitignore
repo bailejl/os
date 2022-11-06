@@ -31,10 +31,14 @@ dist-ssr
 *.sln
 *.sw?
 
-static
+
 .tmp
 tmp
 reports
 e2e/reports
 e2e/screenshots
 e2e/traces
+
+admin-app/coverage
+
+app/coverage
