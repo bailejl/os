@@ -7,6 +7,12 @@ const config = {
 	// for more information about preprocessors
 	preprocess: [
 		preprocess({
+			scss: {
+				// We can use a path relative to the root because
+				// svelte-preprocess automatically adds it to `includePaths`
+				// if none is defined.
+				prependData: `@import 'src/styles/variables.scss';`
+			},
 			postcss: true
 		})
 	],

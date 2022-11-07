@@ -1,19 +1,15 @@
 {
 	"compilerOptions": {
 		"baseUrl": "..",
-		"paths": {},
-		"rootDirs": [
-			"..",
-			"./types"
-		],
+		"paths": {
+			"$lib": ["src/lib"],
+			"$lib/*": ["src/lib/*"]
+		},
+		"rootDirs": ["..", "./types"],
 		"importsNotUsedAsValues": "error",
 		"isolatedModules": true,
 		"preserveValueImports": true,
-		"lib": [
-			"esnext",
-			"DOM",
-			"DOM.Iterable"
-		],
+		"lib": ["esnext", "DOM", "DOM.Iterable"],
 		"moduleResolution": "node",
 		"module": "esnext",
 		"target": "esnext"
@@ -32,8 +28,5 @@
 		"../tests/**/*.ts",
 		"../tests/**/*.svelte"
 	],
-	"exclude": [
-		"../node_modules/**",
-		"./[!ambient.d.ts]**"
-	]
+	"exclude": ["../node_modules/**", "./[!ambient.d.ts]**"]
 }
