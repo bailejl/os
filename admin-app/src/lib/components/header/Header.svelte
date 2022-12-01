@@ -1,9 +1,8 @@
 <script lang="ts">
+  import Avatar from "./Avatar.svelte";
 </script>
 
-<div class="header-container">
-	<div class="logo">logo</div>
-	<div class="avatar">avatar</div>
+<div class="flex justify-between">
+  <div class="logo ">logo</div>
+  <Avatar />
 </div>
-
-<style src="./style.scss"></style>

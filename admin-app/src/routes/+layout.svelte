@@ -1,8 +1,12 @@
 <script lang="ts">
-	import '../app.postcss';
-	import Header from '../lib/components/header/Header.svelte';
+  import "../app.postcss";
+  import Header from "../lib/components/header/Header.svelte";
 </script>
 
-<Header />
+<div class="pr-3 pl-3">
+  <Header />
+</div>
 
-<slot />
+<div class="pr-3 pl-3">
+  <slot />
+</div>
