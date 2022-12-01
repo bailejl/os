@@ -3,11 +3,11 @@
 </script>
 
 <svg
-  class={classNames}
-  viewBox="0 0 433 106"
-  version="1.1"
   xmlns="http://www.w3.org/2000/svg"
   xmlns:xlink="http://www.w3.org/1999/xlink"
+  class={classNames}
+  viewBox="0 0 417 105"
+  version="1.1"
 >
   <defs />
   <g
@@ -17,7 +17,7 @@
     fill="none"
     fill-rule="evenodd"
   >
-    <g transform="translate(0.000000, -8.000000)" fill="#004AFF">
+    <g transform="translate(0.000000, -8.000000)" fill="#2563EB">
       <text
         id="Our-Ways-of-Working"
         font-family="Alexandria-Regular, Alexandria"
@@ -26,90 +26,90 @@
         textLength="550"
         lengthAdjust="spacing"
       >
-        <tspan x="133" y="48">Our Ways </tspan>
-        <tspan x="133" y="103">of Working</tspan>
+        <tspan x="117" y="48">Our Ways </tspan>
+        <tspan x="117" y="102">of Working</tspan>
       </text>
-      <g id="Group-5" transform="translate(0.000000, 8.000000)">
-        <ellipse id="Oval" cx="64" cy="10.5" rx="10" ry="10.5" />
-        <ellipse id="Oval" cx="42.5" cy="31" rx="11.5" ry="12" />
-        <ellipse id="Oval" cx="83.5" cy="31" rx="11.5" ry="12" />
-        <g id="Group-4" transform="translate(0.000000, 43.000000)">
-          <g id="Group-2" transform="translate(0.000000, 4.500000)">
+      <g id="Group-5" transform="translate(0.000000, 9.000000)">
+        <ellipse id="Oval" cx="57" cy="9.5" rx="9" ry="9.5" />
+        <ellipse id="Oval" cx="39.5" cy="29" rx="10.5" ry="11" />
+        <ellipse id="Oval" cx="76.5" cy="29" rx="10.5" ry="11" />
+        <g id="Group-4" transform="translate(0.000000, 39.000000)">
+          <g id="Group-2" transform="translate(0.000000, 4.000000)">
             <ellipse
               id="Oval"
-              cx="21.5384615"
-              cy="13.5"
-              rx="12.9230769"
-              ry="13.5"
+              cx="19.5176471"
+              cy="12.2612637"
+              rx="11.7105882"
+              ry="12.2612637"
             />
-            <g id="Group" transform="translate(0.000000, 28.125000)">
+            <g id="Group" transform="translate(0.000000, 25.544299)">
               <rect
                 id="Rectangle"
                 x="0"
                 y="0"
-                width="43.0769231"
-                height="25.875"
+                width="39.0352941"
+                height="23.5007555"
                 rx="11.5"
               />
               <rect
                 id="Rectangle"
                 x="0"
-                y="13.5"
-                width="43.0769231"
-                height="16.875"
+                y="12.2612637"
+                width="39.0352941"
+                height="15.3265797"
               />
             </g>
           </g>
-          <g id="Group-3" transform="translate(40.923077, 0.000000)">
+          <g id="Group-3" transform="translate(37.083529, 0.000000)">
             <ellipse
               id="Oval"
-              cx="22.0769231"
-              cy="15.1875"
-              rx="14.5384615"
-              ry="15.1875"
+              cx="20.0055882"
+              cy="13.7939217"
+              rx="13.1744118"
+              ry="13.7939217"
             />
-            <g id="Group" transform="translate(0.000000, 32.625000)">
+            <g id="Group" transform="translate(0.000000, 29.631387)">
               <rect
                 id="Rectangle"
                 x="0"
                 y="0"
-                width="43.0769231"
-                height="25.875"
+                width="39.0352941"
+                height="23.5007555"
                 rx="11.5"
               />
               <rect
                 id="Rectangle"
                 x="0"
-                y="13.5"
-                width="43.0769231"
-                height="16.875"
+                y="12.2612637"
+                width="38.035294"
+                height="15.2"
               />
             </g>
           </g>
         </g>
-        <g id="Group-2" transform="translate(82.000000, 47.000000)">
+        <g id="Group-2" transform="translate(74.000000, 43.000000)">
           <ellipse
             id="Oval"
-            cx="21.5"
-            cy="13.6153846"
-            rx="12.9"
-            ry="13.6153846"
+            cx="19.5176471"
+            cy="12.2612637"
+            rx="11.7105882"
+            ry="12.2612637"
           />
-          <g id="Group" transform="translate(0.000000, 28.365385)">
+          <g id="Group" transform="translate(0.000000, 25.544299)">
             <rect
               id="Rectangle"
               x="0"
               y="0"
-              width="43"
-              height="26.0961538"
+              width="39.0352941"
+              height="23.5007555"
               rx="11.5"
             />
             <rect
               id="Rectangle"
               x="0"
-              y="13.6153846"
-              width="43"
-              height="17.0192308"
+              y="12.2612637"
+              width="39.0352941"
+              height="15.3265797"
             />
           </g>
         </g>
