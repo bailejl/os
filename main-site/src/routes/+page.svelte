@@ -8,24 +8,32 @@
   import Faqs from "$lib/components/Faqs.svelte";
   import Header from "../lib/components/header/Header.svelte";
   import Footer from "../lib/components/Footer.svelte";
+  import EmailRibbon from "$lib/pages/home/EmailRibbon.svelte";
 </script>
 
 <svelte:head>
-  <title>TaxPal - Accounting made simple for small businesses</title>
+  <title>Our Ways of Working</title>
   <meta
     name="description"
-    content="Most bookkeeping software is accurate, but hard to use. We make the opposite trade-off, and hope you don’t get audited."
+    content="We help teams and organizations perform better by tapping into people's potential."
   />
 </svelte:head>
 
 <Header />
 <main>
   <Hero />
+  <EmailRibbon />
   <PrimaryFeatures />
+  <EmailRibbon />
   <SecondaryFeatures />
+  <EmailRibbon />
   <CallToAction />
+  <EmailRibbon />
   <Testimonials />
+  <EmailRibbon />
   <Pricing />
+  <EmailRibbon />
   <Faqs />
+  <EmailRibbon />
 </main>
 <Footer />

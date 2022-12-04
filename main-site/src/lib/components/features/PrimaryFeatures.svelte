@@ -20,27 +20,27 @@
 
   const features = [
     {
-      title: "Payroll",
+      title: "Digital Handbook",
       description:
-        "Keep track of everyone's salaries and whether or not they've been paid. Direct deposit not supported.",
+        "Employee's central go-to for information. It has everything and if not, they can easily contribute to it.",
       image: screenshotPayroll
     },
     {
-      title: "Claim expenses",
+      title: "Best Practices",
       description:
-        "All of your receipts organized into one place, as long as you don't mind typing in the data by hand.",
+        "Pre-populate your handbook with best practices in organization, product management and software development. Modify to meet your needs.",
       image: screenshotExpenses
     },
     {
-      title: "VAT handling",
+      title: "Training & Onboarding",
       description:
-        "We only sell our software to companies who don't deal with VAT at all, so technically we do all the VAT stuff they need.",
+        "Training material and videos are avaiable for some of the best practices. Use it for onboarding and yearly training.",
       image: screenshotVatReturns
     },
     {
-      title: "Reporting",
+      title: "OKRs Tool",
       description:
-        "Easily export your data into an Excel spreadsheet where you can do whatever the hell you want with it.",
+        "Our OKR tool integrates with your handbook, so every team and departments OKRs are viewable.",
       image: screenshotReporting
     }
   ];
@@ -80,11 +80,11 @@
       <h2
         class="font-display text-3xl tracking-tight text-white sm:text-4xl md:text-5xl"
       >
-        Everything you need to run your books.
+        Tools to Drive Better Product Development and More...
       </h2>
       <p class="mt-6 text-lg tracking-tight text-blue-100">
-        Well everything you need if you aren’t that picky about minor details
-        like tax compliance.
+        From employee onboarding, training, digital handbook, product &
+        development best practices, OKRs tool and much more!
       </p>
     </div>
     <TabGroup

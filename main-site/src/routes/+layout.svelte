@@ -14,5 +14,9 @@
     rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Lexend:wght@400;500&amp;display=swap"
   />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Alexandria"
+  />
 </svelte:head>
 <slot />

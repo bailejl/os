@@ -14,14 +14,14 @@
         <a href="/" aria-label="Home">
           <Logo classNames="h-10 w-auto" />
         </a>
-        <div class="hidden md:flex md:gap-x-6">
+        <!-- <div class="hidden md:flex md:gap-x-6">
           <NavLink href="#features">Features</NavLink>
           <NavLink href="#testimonials">Testimonials</NavLink>
           <NavLink href="#pricing">Pricing</NavLink>
-        </div>
+        </div> -->
       </div>
       <div class="flex items-center gap-x-5 md:gap-x-8">
-        <div class="hidden md:block">
+        <!-- <div class="hidden md:block">
           <NavLink href="/login">Sign in</NavLink>
         </div>
         <Button href="/register" color="blue">
@@ -31,7 +31,7 @@
         </Button>
         <div class="-mr-1 md:hidden">
           <MobileNavigation />
-        </div>
+        </div> -->
       </div>
     </nav>
   </Container>
