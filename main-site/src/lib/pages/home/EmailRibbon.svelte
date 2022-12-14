@@ -1,25 +1,24 @@
 <script lang="ts">
   import Container from "../../components/Container.svelte";
   import { MailIcon } from "@rgossiaux/svelte-heroicons/solid";
+  import { canSubmitEmail } from "./canSubmitEmailStore";
 
   let emailEl: HTMLInputElement;
-
-  let canSubmitEmail = true;
 
   export let addEmailFunc: (email: string) => Promise<void>;
 
   async function submitEmail(event: SubmitEvent) {
     await addEmailFunc(emailEl.value);
-    canSubmitEmail = !canSubmitEmail;
+    canSubmitEmail.update((n) => !n);
   }
 
   function showEmailForm(): undefined {
-    canSubmitEmail = !canSubmitEmail;
+    canSubmitEmail.update((n) => !n);
     return undefined;
   }
 </script>
 
-{#if canSubmitEmail}
+{#if $canSubmitEmail}
   <Container classNames="pt-16 pb-16 text-center ">
     <div class="mt-10 grow flex-wrap justify-center gap-x-16 text-xl">
       Interested in signing up for notifications?
