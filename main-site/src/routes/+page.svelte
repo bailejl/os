@@ -9,6 +9,7 @@
   import Header from "../lib/components/header/Header.svelte";
   import Footer from "../lib/components/Footer.svelte";
   import EmailRibbon from "$lib/pages/home/EmailRibbon.svelte";
+  import { addEmail } from "../lib/data/email-data";
 </script>
 
 <svelte:head>
@@ -22,18 +23,18 @@
 <Header />
 <main>
   <Hero />
-  <EmailRibbon />
+  <EmailRibbon addEmailFunc={addEmail} />
   <PrimaryFeatures />
-  <EmailRibbon />
+  <EmailRibbon addEmailFunc={addEmail} />
   <SecondaryFeatures />
-  <EmailRibbon />
+  <EmailRibbon addEmailFunc={addEmail} />
   <CallToAction />
-  <EmailRibbon />
+  <EmailRibbon addEmailFunc={addEmail} />
   <Testimonials />
-  <EmailRibbon />
+  <EmailRibbon addEmailFunc={addEmail} />
   <Pricing />
-  <EmailRibbon />
+  <EmailRibbon addEmailFunc={addEmail} />
   <Faqs />
-  <EmailRibbon />
+  <EmailRibbon addEmailFunc={addEmail} />
 </main>
 <Footer />

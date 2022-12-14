@@ -2,11 +2,15 @@
   import Container from "../../components/Container.svelte";
   import { MailIcon } from "@rgossiaux/svelte-heroicons/solid";
 
+  let emailEl: HTMLInputElement;
+
   let canSubmitEmail = true;
 
-  function submitEmail(): undefined {
+  export let addEmailFunc: (email: string) => Promise<void>;
+
+  async function submitEmail(event: SubmitEvent) {
+    await addEmailFunc(emailEl.value);
     canSubmitEmail = !canSubmitEmail;
-    return undefined;
   }
 
   function showEmailForm(): undefined {
@@ -29,12 +33,13 @@
             </div>
             <input
               required
+              bind:this={emailEl}
               type="email"
               name="emailInput"
               id="emailInput"
-              class=" mr-3 flex rounded-md border-gray-300 pl-10 invalid:border-pink-500 invalid:text-pink-600  focus:border-indigo-500 
-      focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:invalid:border-pink-500
-      focus:invalid:ring-pink-500 disabled:border-slate-200 
+              class=" mr-3 flex rounded-md border-gray-300 pl-10 required:border-indigo-500   invalid:text-pink-600 
+      focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500
+      focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:border-slate-200
       disabled:bg-slate-50 disabled:text-slate-500 disabled:shadow-none sm:text-sm"
               placeholder="you@example.com"
             />
