@@ -1,8 +1,17 @@
 import "@testing-library/jest-dom";
-import { render, fireEvent, screen, act } from "@testing-library/svelte";
+import {
+  render,
+  fireEvent,
+  screen,
+  act,
+  cleanup
+} from "@testing-library/svelte";
 import EmailRibbon from "./EmailRibbon.svelte";
 
 describe("Email Ribbon", () => {
+  afterEach(() => {
+    cleanup();
+  }); // Default on import: runs it after each test.
   test("shows email form on first render", () => {
     let emailAddress: string = "";
     let addEmailFunc = async function (email: string) {

@@ -1,6 +1,8 @@
 <script lang="ts">
   import Container from "../../components/Container.svelte";
   import { MailIcon } from "@rgossiaux/svelte-heroicons/solid";
+  import { writable } from "svelte/store";
+  import { onDestroy } from "svelte";
   import { canSubmitEmail } from "./canSubmitEmailStore";
 
   let emailEl: HTMLInputElement;
@@ -16,6 +18,10 @@
     canSubmitEmail.update((n) => !n);
     return undefined;
   }
+
+  onDestroy(() => {
+    canSubmitEmail.update((n) => true);
+  });
 </script>
 
 {#if $canSubmitEmail}
