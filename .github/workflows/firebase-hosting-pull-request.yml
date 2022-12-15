@@ -10,9 +10,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: npm run build
-        working-directory: main-site
+        working-directory: ./main-site
       - uses: FirebaseExtended/action-hosting-deploy@v0
-        working-directory: main-site
+        working-directory: ./main-site
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_OSOS_69B1A }}'
