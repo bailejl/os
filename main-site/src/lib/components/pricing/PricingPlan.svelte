@@ -1,5 +1,5 @@
 <script lang="ts">
-  import clsx from "clsx";
+  import clsx from "../../clsx.mjs";
 
   import PricingCheckIcon from "./PricingCheckIcon.svelte";
   import Button from "../Button.svelte";

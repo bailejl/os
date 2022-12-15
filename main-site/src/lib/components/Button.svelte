@@ -1,5 +1,5 @@
 <script lang="ts">
-  import clsx from "clsx";
+  import clsx from "../../lib/clsx.mjs";
 
   export let classNames = "";
   export let href: string | undefined = undefined;

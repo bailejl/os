@@ -6,6 +6,8 @@
 
   import { personalConfig } from "../personal-config";
 
+  export const ssr = false;
+
   onMount(() => {
     // https://firebase.google.com/docs/app-check/web/debug-provider?hl=en&authuser=0
     if (personalConfig.enableFirebaseAppCheckDebugTokenSetup === true) {

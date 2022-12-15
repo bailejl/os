@@ -5,31 +5,29 @@ import {
   assets,
   base
 } from "../../node_modules/@sveltejs/kit/src/runtime/paths.js";
-import { set_prerendering } from "../../node_modules/@sveltejs/kit/src/runtime/env.js";
+import {
+  set_building,
+  set_version
+} from "../../node_modules/@sveltejs/kit/src/runtime/env.js";
 import { set_private_env } from "../../node_modules/@sveltejs/kit/src/runtime/env-private.js";
 import { set_public_env } from "../../node_modules/@sveltejs/kit/src/runtime/env-public.js";
 
 const app_template = ({ head, body, assets, nonce }) =>
-  '<!DOCTYPE html>\n<html lang="en">\n\t<head>\n\t\t<meta charset="utf-8" />\n\t\t<link rel="icon" href="' +
+  '<!DOCTYPE html>\n<html lang="en">\n  <head>\n    <meta charset="utf-8" />\n    <link rel="icon" href="' +
   assets +
-  '/favicon.png" />\n\t\t<meta name="viewport" content="width=device-width" />\n\t\t' +
+  '/favicon.png" />\n    <meta name="viewport" content="width=device-width" />\n    ' +
   head +
-  "\n\t</head>\n\t<body>\n\t\t<div>" +
+  "\n  </head>\n  <body>\n    <div>" +
   body +
-  "</div>\n\t</body>\n</html>\n";
+  "</div>\n  </body>\n</html>\n";
 
 const error_template = ({ status, message }) =>
-  '<!DOCTYPE html>\n<html lang="en">\n\t<head>\n\t\t<meta charset="utf-8" />\n\t\t<title>' +
-  message +
-  "</title>\n\n\t\t<style>\n\t\t\tbody {\n\t\t\t\tfont-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,\n\t\t\t\t\tUbuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;\n\t\t\t\tdisplay: flex;\n\t\t\t\talign-items: center;\n\t\t\t\tjustify-content: center;\n\t\t\t\theight: 100vh;\n\t\t\t}\n\n\t\t\t.error {\n\t\t\t\tdisplay: flex;\n\t\t\t\talign-items: center;\n\t\t\t\tmax-width: 32rem;\n\t\t\t\tmargin: 0 1rem;\n\t\t\t}\n\n\t\t\t.status {\n\t\t\t\tfont-weight: 200;\n\t\t\t\tfont-size: 3rem;\n\t\t\t\tline-height: 1;\n\t\t\t\tposition: relative;\n\t\t\t\ttop: -0.05rem;\n\t\t\t}\n\n\t\t\t.message {\n\t\t\t\tborder-left: 1px solid #ccc;\n\t\t\t\tpadding: 0 0 0 1rem;\n\t\t\t\tmargin: 0 0 0 1rem;\n\t\t\t\tmin-height: 2.5rem;\n\t\t\t\tdisplay: flex;\n\t\t\t\talign-items: center;\n\t\t\t}\n\n\t\t\t.message h1 {\n\t\t\t\tfont-weight: 400;\n\t\t\t\tfont-size: 1em;\n\t\t\t\tmargin: 0;\n\t\t\t}\n\t\t</style>\n\t</head>\n\t<body>\n\t\t<div class=\"error\">\n\t\t\t<span class=\"status\">" +
-  status +
-  '</span>\n\t\t\t<div class="message">\n\t\t\t\t<h1>' +
-  message +
-  "</h1>\n\t\t\t</div>\n\t\t</div>\n\t</body>\n</html>\n";
+  '<!DOCTYPE html>\n<html lang="en">\n  <head>\n    <meta charset="utf-8" />\n    <link rel="icon" href="%sveltekit.assets%/favicon.png" />\n    <meta name="viewport" content="width=device-width" />\n  </head>\n  <body>\n    <div>Error</div>\n  </body>\n</html>\n';
 
 let read = null;
 
 set_paths({ base: "", assets: "" });
+set_version("1671072773288");
 
 let default_protocol = "https";
 
@@ -38,7 +36,7 @@ let default_protocol = "https";
 export function override(settings) {
   default_protocol = settings.protocol || default_protocol;
   set_paths(settings.paths);
-  set_prerendering(settings.prerendering);
+  set_building(settings.building);
   read = settings.read;
 }
 
@@ -60,21 +58,11 @@ export class Server {
         check_origin: true
       },
       dev: false,
+      embedded: false,
       handle_error: (error, event) => {
         return (
-          this.options.hooks.handleError({
-            error,
-            event,
-
-            // TODO remove for 1.0
-            // @ts-expect-error
-            get request() {
-              throw new Error(
-                "request in handleError has been replaced with event. See https://github.com/sveltejs/kit/pull/3384 for details"
-              );
-            }
-          }) ?? {
-            message: event.routeId != null ? "Internal Error" : "Not Found"
+          this.options.hooks.handleError({ error, event }) ?? {
+            message: event.route.id != null ? "Internal Error" : "Not Found"
           }
         );
       },
@@ -88,7 +76,7 @@ export class Server {
       app_template,
       app_template_contains_nonce: false,
       error_template,
-      trailing_slash: "never"
+      version: "1671072773288"
     };
   }
 
@@ -115,13 +103,6 @@ export class Server {
 
     if (!this.options.hooks) {
       const module = await import("./hooks.js");
-
-      // TODO remove this for 1.0
-      if (module.externalFetch) {
-        throw new Error(
-          "externalFetch has been removed — use handleFetch instead. See https://github.com/sveltejs/kit/pull/6565 for details"
-        );
-      }
 
       this.options.hooks = {
         handle: module.handle || (({ event, resolve }) => resolve(event)),

@@ -43,3 +43,7 @@ admin-app/coverage
 
 app/coverage
 personal-config.*
+
+# Svelte and SvelteKit
+build/
+output/

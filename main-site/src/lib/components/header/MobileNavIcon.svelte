@@ -1,5 +1,5 @@
 <script lang="ts">
-  import clsx from "clsx";
+  import clsx from "../../../lib/clsx.mjs";
 
   export let open: boolean;
 </script>

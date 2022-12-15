@@ -1,13 +1,7 @@
 {
-  "/": [],
-  "/login": [],
-  "/register": [],
-  "/(clean)/login": [],
-  "/(clean)": [],
-  "/(clean)/register": [],
-  "/(dirty)": [],
   "/(no-default-footer-or-header)": [],
+  "/(default-footer-and-header)": [],
+  "/": [],
   "/(no-default-footer-or-header)/login": [],
-  "/(no-default-footer-or-header)/register": [],
-  "/(default-footer-and-header)": []
+  "/(no-default-footer-or-header)/register": []
 }
