@@ -3,10 +3,8 @@
   import { onMount } from "svelte";
   import "../app.css";
   import "/node_modules/focus-visible/dist/focus-visible.min.js";
+  import { appCheckConfig } from "../app-check-config";
 
-  if ("../personal-config") {
-    import { appCheckConfig } from "../app-check-config";
-  }
   export const ssr = false;
 
   onMount(() => {
