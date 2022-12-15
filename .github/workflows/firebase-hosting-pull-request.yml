@@ -13,6 +13,11 @@ jobs:
         working-directory: ./main-site
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'npm'
+      - run: npm run ci
       - run: npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
