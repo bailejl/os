@@ -9,11 +9,13 @@ name: Deploy to Firebase Hosting on merge
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./main-site
     steps:
       - uses: actions/checkout@v2
-      - name: Build site
-        run: npm run build
-        working-directory: ./main-site
+      - run: npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         working-directory: ./main-site
         with:

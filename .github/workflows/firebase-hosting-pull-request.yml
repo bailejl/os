@@ -7,13 +7,14 @@ jobs:
   build_and_preview:
     if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./main-site
     steps:
       - uses: actions/checkout@v2
-      - name: Build site
-        run: npm run build
-        working-directory: ./main-site
+      - run: npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
-        working-directory: ./main-site
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_OSOS_69B1A }}'
