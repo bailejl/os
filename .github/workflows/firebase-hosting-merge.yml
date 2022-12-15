@@ -28,3 +28,4 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_OSOS_69B1A }}'
           channelId: live
           projectId: osos-69b1a
+          entryPoint: ./main-site
