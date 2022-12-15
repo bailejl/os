@@ -42,7 +42,7 @@ e2e/traces
 admin-app/coverage
 
 app/coverage
-personal-config.*
+app-check-config.*
 
 # Svelte and SvelteKit
 build/
