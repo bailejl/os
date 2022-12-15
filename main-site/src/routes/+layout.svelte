@@ -4,17 +4,18 @@
   import "../app.css";
   import "/node_modules/focus-visible/dist/focus-visible.min.js";
 
-  import { personalConfig } from "../personal-config";
-
+  if ("../personal-config") {
+    import { appCheckConfig } from "../app-check-config";
+  }
   export const ssr = false;
 
   onMount(() => {
     // https://firebase.google.com/docs/app-check/web/debug-provider?hl=en&authuser=0
-    if (personalConfig.enableFirebaseAppCheckDebugTokenSetup === true) {
+    if (appCheckConfig.enableFirebaseAppCheckDebugTokenSetup === true) {
       window.FIREBASE_APPCHECK_DEBUG_TOKEN = true;
     } else if (location.hostname === "localhost") {
       window.FIREBASE_APPCHECK_DEBUG_TOKEN =
-        personalConfig.firebaseAppCheckDebugToken;
+        appCheckConfig.firebaseAppCheckDebugToken;
     }
     firebaseFactory.getFirebaseIntegration();
   });

@@ -18,6 +18,7 @@ jobs:
           node-version: 18
           cache: 'npm'
       - run: npm ci
+      - run: echo "export const personalConfig = {}" > ./main-site/src/app-check-config.js
       - run: npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
