@@ -26,7 +26,7 @@ import {
   F as Footer
 } from "../../chunks/Footer.js";
 import { w as writable } from "../../chunks/index2.js";
-import clsx from "clsx";
+import { c as clsx } from "../../chunks/Logo.js";
 import { B as Button } from "../../chunks/Button.js";
 import { getFirestore, addDoc, collection } from "firebase/firestore";
 let id = 0;

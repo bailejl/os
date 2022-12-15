@@ -35,9 +35,9 @@ export const manifest = {
   },
   _: {
     entry: {
-      file: "_app/immutable/start-ad9008a5.js",
+      file: "_app/immutable/start-fb1d3775.js",
       imports: [
-        "_app/immutable/start-ad9008a5.js",
+        "_app/immutable/start-fb1d3775.js",
         "_app/immutable/chunks/index-b7aff430.js",
         "_app/immutable/chunks/singletons-6839f04e.js",
         "_app/immutable/chunks/index-b2e54031.js"
