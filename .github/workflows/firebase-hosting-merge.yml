@@ -20,10 +20,9 @@ jobs:
           node-version: 18
           cache: 'npm'
       - run: npm ci
-      - run: echo "export const personalConfig = {}" > ./main-site/src/app-check-config.js
+      - run: echo "export const personalConfig = {}" > ./src/app-check-config.js
       - run: npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
-        working-directory: ./main-site
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_OSOS_69B1A }}'
