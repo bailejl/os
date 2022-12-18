@@ -17,7 +17,7 @@ describe("Email Ribbon", () => {
     let addEmailFunc = async function (email: string) {
       emailAddress = email;
     };
-    render(EmailRibbon, { addEmailFun: addEmailFunc });
+    render(EmailRibbon, { addEmailFunc: addEmailFunc });
 
     const inputElement = screen.getByRole("textbox");
     expect(inputElement).toBeVisible();
