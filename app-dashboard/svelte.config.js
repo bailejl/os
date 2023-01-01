@@ -13,6 +13,9 @@ const config = {
   ],
 
   kit: {
+    alias: {
+      $exlib: "../lib/src"
+    },
     adapter: adapter({
       fallback: "index.html"
     })

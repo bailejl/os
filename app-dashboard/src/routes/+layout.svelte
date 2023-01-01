@@ -1,5 +1,5 @@
 <script lang="ts">
-  import firebaseFactory from "$lib/integrations/baas/firebase/firebase-integration";
+  import firebaseFactory from "$exlib/integrations/baas/firebase/firebase-integration";
   import { onMount } from "svelte";
   import "../app.css";
   import "/node_modules/focus-visible/dist/focus-visible.min.js";
