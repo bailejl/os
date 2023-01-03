@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
+    "build:watch": "vite build --watch",
     "preview": "vite preview",
     "test": "vitest run src",
     "test:watch": "vitest src",
@@ -16,7 +17,7 @@
   "devDependencies": {
     "@rgossiaux/svelte-headlessui": "^1.0.2",
     "@rgossiaux/svelte-heroicons": "^0.1.2",
-    "@sveltejs/adapter-static": "^1.0.0",
+    "@sveltejs/adapter-auto": "^1.0.0",
     "@sveltejs/kit": "^1.0.0",
     "@sveltejs/vite-plugin-svelte": "^2.0.2",
     "@testing-library/jest-dom": "^5.16.5",

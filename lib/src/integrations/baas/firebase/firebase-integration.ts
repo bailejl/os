@@ -2,11 +2,13 @@
 import { initializeApp, type FirebaseApp } from 'firebase/app';
 import { initializeAppCheck, ReCaptchaV3Provider, type AppCheck } from 'firebase/app-check';
 import { getAnalytics, type Analytics } from 'firebase/analytics';
-import { getFirestore, Firestore } from 'firebase/firestore';
+import { getFirestore, Firestore, connectFirestoreEmulator } from 'firebase/firestore';
+import { getAuth, Auth, connectAuthEmulator, signInWithEmailAndPassword } from 'firebase/auth';
+import { context, Context } from '../../../security/context';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyBVhO5-_NfA4V-6aKUkYOZaAYxlFmD2Jfw',
-  authDomain: 'osos-69b1a.firebaseapp.com',
+  apiKey: 'AIzaSyAzDFfjdQ-DubRMGBybtHgbiSmjGTLunxw',
+  authDomain: 'osos-373518.firebaseapp.com',
   projectId: 'osos-69b1a',
   storageBucket: 'osos-69b1a.appspot.com',
   messagingSenderId: '399343116361',
@@ -16,32 +18,43 @@ const firebaseConfig = {
 };
 
 class FirebaseIntegration {
-  app: FirebaseApp | undefined;
+  app: FirebaseApp;
   analytics: Analytics | undefined;
   appCheck: AppCheck | undefined;
-  database: Firestore | undefined;
+  database: Firestore;
+  auth: Auth;
 
   constructor() {
-    // Initialize Firebase
-    this.app = initializeApp(firebaseConfig);
+    let hostname = (<any>window).location.hostname;
 
-    this.analytics = getAnalytics(this.app);
+    if (hostname === 'localhost' || hostname === '127.0.0.1') {
+      // (<any>window).FIREBASE_APPCHECK_DEBUG_TOKEN = true;
+      const auth = getAuth();
+      this.app = initializeApp(firebaseConfig);
+      connectAuthEmulator(auth, 'http://localhost:9099');
+      this.auth = auth;
+      const db = getFirestore();
+      connectFirestoreEmulator(db, 'localhost', 8080);
+      this.database = db;
+    } else {
+      // Initialize Firebase
+      const auth = getAuth();
+      this.auth = auth;
+      this.app = initializeApp(firebaseConfig);
+      this.analytics = getAnalytics(this.app);
+      this.appCheck = initializeAppCheck(this.app, {
+        provider: new ReCaptchaV3Provider('abcdefghijklmnopqrstuvwxy-1234567890abcd'),
 
-    // if (location.hostname === "localhost") {
-    //   (<any>window).FIREBASE_APPCHECK_DEBUG_TOKEN = true;
-    // }
-    // Pass your reCAPTCHA v3 site key (public key) to activate(). Make sure this
-    // key is the counterpart to the secret key you set in the Firebase console.
-    this.appCheck = initializeAppCheck(this.app, {
-      provider: new ReCaptchaV3Provider('abcdefghijklmnopqrstuvwxy-1234567890abcd'),
+        // Optional argument. If true, the SDK automatically refreshes App Check
+        // tokens as needed.
+        isTokenAutoRefreshEnabled: true
+      });
 
-      // Optional argument. If true, the SDK automatically refreshes App Check
-      // tokens as needed.
-      isTokenAutoRefreshEnabled: true
-    });
-
-    // Initialize Realtime Database and get a reference to the service
-    this.database = getFirestore(this.app);
+      // Pass your reCAPTCHA v3 site key (public key) to activate(). Make sure this
+      // key is the counterpart to the secret key you set in the Firebase console.
+      // Initialize Realtime Database and get a reference to the service
+      this.database = getFirestore(this.app);
+    }
   }
 
   getDatabase() {
@@ -63,3 +76,14 @@ class FirebaseIntegrationFactory {
 
 let firebaseFactory = new FirebaseIntegrationFactory();
 export default firebaseFactory;
+
+export function firebaseUsernamePassowordLogin(email: string, password: string, tenantId: string) {
+  let auth = FirebaseIntegrationFactory.firebaseIntegrationInstance.auth;
+  auth.tenantId = tenantId;
+
+  // Sign in with tenant
+  signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
+    // User is signed in.
+    context.update((n) => new Context(userCredential.user));
+  });
+}

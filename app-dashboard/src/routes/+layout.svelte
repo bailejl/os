@@ -6,6 +6,7 @@
   import { appCheckConfig } from "../app-check-config";
 
   export const ssr = false;
+  export const prerender = false;
 
   onMount(() => {
     // https://firebase.google.com/docs/app-check/web/debug-provider?hl=en&authuser=0

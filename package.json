@@ -1,19 +1,21 @@
 {
-	"name": "os",
-	"private": true,
-	"version": "0.0.0",
-	"scripts": {
-		"test-main-site": "cd main-site && npm run test",
-		"test-app-dashboard": "cd app-dashboard && npm run test",
-		"test-app-handbook": "cd app-handbook && npm run test"
-	},
-	"lint-staged": {
-		"**/*": "prettier --write --ignore-unknown"
-	},
-	"devDependencies": {
-		"husky": "^8.0.1",
-		"lint-staged": "^13.0.3",
-		"prettier": "^2.7.1",
-		"prettier-plugin-svelte": "^2.8.0"
-	}
+  "name": "os",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "test-main-site": "cd main-site && npm run test",
+    "test-app-dashboard": "cd app-dashboard && npm run test",
+    "test-app-handbook": "cd app-handbook && npm run test",
+    "dashboard-local-dev": "concurrently \"firebase emulators:start --only hosting:dashboard,auth,firestore\" \"cd app-dashboard && npm run build:watch\""
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
+    "prettier-plugin-svelte": "^2.8.0"
+  }
 }
