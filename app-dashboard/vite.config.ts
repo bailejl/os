@@ -6,6 +6,11 @@ const config: UserConfig = {
   plugins: [tsconfigPaths(), sveltekit()],
   server: {
     port: 4210
+  },
+  build: {
+    rollupOptions: {
+      external: ["../lib/*"]
+    }
   }
 };
 

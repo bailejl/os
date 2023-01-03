@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "vite dev",
-    "build": "vite build",
+    "build": "cd ../lib && npm install && cd ../app-dashboard && vite build",
     "build:watch": "vite build --watch",
     "preview": "vite preview",
     "test": "vitest run src",
