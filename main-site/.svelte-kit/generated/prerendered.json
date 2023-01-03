@@ -1,4 +1,8 @@
 {
   "prerendered": { "pages": [], "assets": [], "redirects": [], "paths": [] },
-  "prerender_map": [["/", false]]
+  "prerender_map": [
+    ["/", false],
+    ["/(no-default-footer-or-header)/login", false],
+    ["/(no-default-footer-or-header)/register", false]
+  ]
 }

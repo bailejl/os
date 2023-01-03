@@ -1,5 +1,21 @@
 {
   "projects": {
-    "default": "osos"
-  }
+    "default": "osos-69b1a"
+  },
+  "targets": {
+    "osos-69b1a": {
+      "hosting": {
+        "dashboard": [
+          "dashboard-owow1"
+        ],
+        "handbook": [
+          "handbook-owow"
+        ],
+        "main": [
+          "osos-69b1a"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }
