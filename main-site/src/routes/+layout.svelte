@@ -3,17 +3,18 @@
   import { onMount } from "svelte";
   import "../app.css";
   import "/node_modules/focus-visible/dist/focus-visible.min.js";
-  import { appCheckConfig } from "../app-check-config";
 
   export const ssr = false;
 
   onMount(() => {
+    let enableFirebaseAppCheckDebugTokenSetup =
+      "{{ENABLE_FIREBASE_APP_CHECK_DEBUG_TOKEN_SETUP}}";
+    let firebaseAppCheckDebugToken = "{{FIREBASE_APP_CHECK_DEBUG_TOKEN}}";
     // https://firebase.google.com/docs/app-check/web/debug-provider?hl=en&authuser=0
-    if (appCheckConfig.enableFirebaseAppCheckDebugTokenSetup === true) {
+    if (enableFirebaseAppCheckDebugTokenSetup === "true") {
       window.FIREBASE_APPCHECK_DEBUG_TOKEN = true;
     } else if (location.hostname === "localhost") {
-      window.FIREBASE_APPCHECK_DEBUG_TOKEN =
-        appCheckConfig.firebaseAppCheckDebugToken;
+      window.FIREBASE_APPCHECK_DEBUG_TOKEN = firebaseAppCheckDebugToken;
     }
     firebaseFactory.getFirebaseIntegration();
   });
