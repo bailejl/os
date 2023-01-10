@@ -1,0 +1,31 @@
+{
+  "kind": "identitytoolkit#DownloadAccountResponse",
+  "users": [
+    {
+      "localId": "MaiKyMLSGdg8KmIJt4a3pTmM9cOc",
+      "createdAt": "1673131078749",
+      "lastLoginAt": "1673311810337",
+      "displayName": "Jay",
+      "photoUrl": "https://0.gravatar.com/avatar/1f1374aa3f1a8fc814e9093876517da2",
+      "passwordHash": "fakeHash:salt=fakeSaltE5VEYDxyfLe1GG7MCyDA:password=testtest",
+      "salt": "fakeSaltE5VEYDxyfLe1GG7MCyDA",
+      "passwordUpdatedAt": 1673311575164,
+      "providerUserInfo": [
+        {
+          "providerId": "password",
+          "email": "bailejl@yahoo.com",
+          "federatedId": "bailejl@yahoo.com",
+          "rawId": "bailejl@yahoo.com",
+          "displayName": "Jay",
+          "photoUrl": "https://0.gravatar.com/avatar/1f1374aa3f1a8fc814e9093876517da2"
+        }
+      ],
+      "validSince": "1673311575",
+      "email": "bailejl@yahoo.com",
+      "emailVerified": true,
+      "disabled": false,
+      "customAttributes": "{\"role\": \"admin\",\"tenant-id\": \"test-6789\"}",
+      "lastRefreshAt": "2023-01-10T02:08:01.239Z"
+    }
+  ]
+}

@@ -1,6 +1,4 @@
 <script lang="ts">
-  import clsx from "$lib/clsx.mjs";
-
   import FieldLabel from "./FieldLabel.svelte";
 
   const formClasses =
@@ -8,13 +6,15 @@
 
   export let id: string;
   export let label: string;
-  export let classNames: string;
-  export let props: {};
+  export let type = "text";
+  export let classNames = "";
+  export let props = {};
+  export let inputEl: HTMLInputElement;
 </script>
 
 <div class={classNames}>
   {#if label}
     <FieldLabel {id}>{label}</FieldLabel>
   {/if}
-  <select {id} {...props} class={clsx(formClasses, "pr-8")} />
+  <input {id} {type} {...props} class={formClasses} bind:this={inputEl} />
 </div>

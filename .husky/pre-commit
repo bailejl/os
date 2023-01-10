@@ -3,5 +3,4 @@
 
 npx lint-staged
 npm run test-main-site
-npm run test-app-dashboard
-npm run test-app-handbook
+npm run test-app

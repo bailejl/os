@@ -6,7 +6,7 @@
     TabPanels,
     TabPanel
   } from "@rgossiaux/svelte-headlessui";
-  import clsx from "../../../lib/clsx.mjs";
+  import clsx from "$lib/clsx.mjs";
   import { writable } from "svelte/store";
 
   import Container from "../Container.svelte";

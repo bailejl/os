@@ -115,3 +115,7 @@ node_modules/
 .env
 
 public
+/test-results/
+/load-account-data/results
+/playwright-report/
+/playwright/.cache/

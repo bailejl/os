@@ -4,8 +4,6 @@
   import "../app.css";
   import "/node_modules/focus-visible/dist/focus-visible.min.js";
 
-  export const ssr = false;
-
   onMount(() => {
     let enableFirebaseAppCheckDebugTokenSetup =
       "{{ENABLE_FIREBASE_APP_CHECK_DEBUG_TOKEN_SETUP}}";

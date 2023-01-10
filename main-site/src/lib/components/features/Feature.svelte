@@ -1,5 +1,5 @@
 <script lang="ts">
-  import clsx from "../../../lib/clsx.mjs";
+  import clsx from "$lib/clsx.mjs";
 
   export let feature: {
     name: string;
