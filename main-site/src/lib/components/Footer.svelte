@@ -1,13 +1,13 @@
 <script lang="ts">
   import Container from "./Container.svelte";
-  import Logo from "./Logo.svelte";
+  // import Logo from "./Logo.svelte";
   import NavLink from "./NavLink.svelte";
 </script>
 
 <footer class="bg-slate-50">
   <Container>
     <div class="py-16">
-      <Logo classNames="mx-auto h-10 w-auto" />
+      <!-- <Logo classNames="mx-auto h-10 w-auto" /> -->
       <nav class="mt-10 text-sm" aria-label="quick links">
         <div class="-my-1 flex justify-center gap-x-6">
           <NavLink href="#features">Features</NavLink>

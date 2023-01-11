@@ -1,7 +1,7 @@
 <script lang="ts">
   import Button from "../Button.svelte";
   import Container from "../Container.svelte";
-  import Logo from "../Logo.svelte";
+  // import Logo from "../Logo.svelte";
   import NavLink from "../NavLink.svelte";
 
   import MobileNavigation from "./MobileNavigation.svelte";
@@ -12,7 +12,7 @@
     <nav class="relative z-50 flex justify-between">
       <div class="flex items-center md:gap-x-12">
         <a href="/" aria-label="Home">
-          <Logo classNames="h-10 w-auto" />
+          <!-- <Logo classNames="h-10 w-auto" /> -->
         </a>
         <!-- <div class="hidden md:flex md:gap-x-6">
           <NavLink href="#features">Features</NavLink>
