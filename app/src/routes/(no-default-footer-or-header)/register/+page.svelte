@@ -1,7 +1,7 @@
 <script lang="ts">
   import AuthLayout from "$lib/components/AuthLayout.svelte";
   import Button from "$lib/components/Button.svelte";
-  import Logo from "$lib/components/Logo.svelte";
+  // import Logo from "$lib/components/Logo.svelte";
   import TextField from "$lib/components/TextField.svelte";
 </script>
 
@@ -11,7 +11,7 @@
 <AuthLayout>
   <div class="flex flex-col">
     <a href="/" aria-label="Home">
-      <Logo classNames="h-10 w-auto" />
+      <!-- <Logo classNames="h-10 w-auto" /> -->
     </a>
     <div class="mt-20">
       <h2 class="text-lg font-semibold text-gray-900">Get started for free</h2>
