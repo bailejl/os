@@ -7,6 +7,7 @@
     firebaseUsernamePassowordLogin
   } from "$lib/integrations/baas/firebase/firebase-integration";
   import { browser } from "$app/environment";
+  import { info } from "$lib/utils/logger";
 
   let emailEl: HTMLInputElement;
   let passwordEl: HTMLInputElement;
@@ -15,6 +16,7 @@
     await firebaseUsernamePassowordLogin(emailEl.value, passwordEl.value);
   }
   if (browser) {
+    info("login page");
     firebaseFactory.getFirebaseIntegration();
   }
 </script>

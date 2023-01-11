@@ -35,16 +35,7 @@
   let db: Firestore;
 
   if (browser) {
-    let enableFirebaseAppCheckDebugTokenSetup =
-      "{{ENABLE_FIREBASE_APP_CHECK_DEBUG_TOKEN_SETUP}}";
-    let firebaseAppCheckDebugToken = "{{FIREBASE_APP_CHECK_DEBUG_TOKEN}}";
-    // https://firebase.google.com/docs/app-check/web/debug-provider?hl=en&authuser=0
-    if (enableFirebaseAppCheckDebugTokenSetup === "true") {
-      window.FIREBASE_APPCHECK_DEBUG_TOKEN = true;
-    } else if (location.hostname === "localhost") {
-      window.FIREBASE_APPCHECK_DEBUG_TOKEN = firebaseAppCheckDebugToken;
-    }
-
+    console.log("handbook page");
     firebaseInstance = firebaseFactory.getFirebaseIntegration();
     auth = firebaseInstance.auth;
     db = firebaseInstance.database;
