@@ -8,6 +8,9 @@
   } from "$lib/integrations/baas/firebase/firebase-integration";
   import { browser } from "$app/environment";
   import { info } from "$lib/utils/logger";
+  import { goto } from "$app/navigation";
+
+  import { userStore } from "sveltefire";
 
   let emailEl: HTMLInputElement;
   let passwordEl: HTMLInputElement;
@@ -17,7 +20,14 @@
   }
   if (browser) {
     info("login page");
-    firebaseFactory.getFirebaseIntegration();
+    const auth = firebaseFactory.getFirebaseIntegration().auth;
+    const user = userStore(auth);
+
+    user.subscribe((user) => {
+      if (user) {
+        goto("/dashboard");
+      }
+    });
   }
 </script>
 

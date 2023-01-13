@@ -31,9 +31,9 @@ dist-ssr
 .tmp
 tmp
 reports
-e2e/reports
-e2e/screenshots
-e2e/traces
+**/e2e/reports
+**/e2e/screenshots
+**/e2e/traces
 
 app-check-config.*
 
@@ -119,3 +119,4 @@ public
 /load-account-data/results
 /playwright-report/
 /playwright/.cache/
+screenshots

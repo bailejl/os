@@ -1,0 +1,10 @@
+[
+  {
+    "name": "Jay Smith",
+    "aliases": ["Tenant Admin"],
+    "email": "bailejl@yahoo.com",
+    "password": "testtest",
+    "tenantId": "test-6789",
+    "role": "admin"
+  }
+]

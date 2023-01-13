@@ -14,7 +14,7 @@ const browserOptions: LaunchOptions = {
 export const config = {
   browser: process.env.BROWSER || "chromium",
   browserOptions,
-  BASE_URL: "https://playwright.dev",
+  BASE_URL: process.env.BASE_URL || "http://localhost:4210",
   IMG_THRESHOLD: { threshold: 0.4 },
-  BASE_API_URL: "https://catfact.ninja/"
+  BASE_API_URL: process.env.BASE_API_URL || "http://localhost:8080"
 };
