@@ -1,6 +1,7 @@
-import { Locator, Page } from "@playwright/test";
+import { expect, Locator, Page } from "@playwright/test";
+import { VerifyPageLoad } from "./login-interfaces";
 
-export class LoginPage {
+export class LoginPage implements VerifyPageLoad {
   readonly page: Page;
   readonly emailAddressInput: Locator;
   readonly passwordInput: Locator;
@@ -13,6 +14,10 @@ export class LoginPage {
     this.passwordInput = page.getByLabel("Password");
     this.submitBtn = page.getByTestId("sign-in");
     this.baseUrl = baseUrl;
+  }
+
+  async verifyPageLoad(): Promise<void> {
+    await expect(this.submitBtn).toBeVisible();
   }
 
   async goto() {

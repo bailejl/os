@@ -6,18 +6,21 @@
   } from "$lib/integrations/baas/firebase/firebase-integration";
   import { browser } from "$app/environment";
 
+  import type { LayoutData } from "./$types";
+
+  export let data: LayoutData;
+
   let firebaseInstance: FirebaseIntegration;
 
   if (browser) {
-    console.log("browser setup");
-    let enableFirebaseAppCheckDebugTokenSetup =
-      "{{ENABLE_FIREBASE_APP_CHECK_DEBUG_TOKEN_SETUP}}";
-    let firebaseAppCheckDebugToken = "{{FIREBASE_APP_CHECK_DEBUG_TOKEN}}";
     // https://firebase.google.com/docs/app-check/web/debug-provider?hl=en&authuser=0
-    if (enableFirebaseAppCheckDebugTokenSetup === "true") {
+    if (data.enableFirebaseAppCheckDebugTokenSetup) {
       window.FIREBASE_APPCHECK_DEBUG_TOKEN = true;
-    } else if (location.hostname === "localhost") {
-      window.FIREBASE_APPCHECK_DEBUG_TOKEN = firebaseAppCheckDebugToken;
+    } else if (
+      location.hostname === "localhost" &&
+      data.firebaseAppCheckDebugToken
+    ) {
+      window.FIREBASE_APPCHECK_DEBUG_TOKEN = data.firebaseAppCheckDebugToken;
     }
 
     firebaseInstance = firebaseFactory.getFirebaseIntegration();

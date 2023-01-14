@@ -29,6 +29,9 @@ Then("They see the {string} page", async function (pageName: string) {
   if (pageName.toLowerCase() == "dashboard") {
     page = new DashboardPage(this.page!, config.BASE_URL);
     await page.verifyPageLoad();
+  } else if (pageName.toLowerCase() == "login") {
+    page = new LoginPage(this.page!, config.BASE_URL);
+    await page.verifyPageLoad();
   } else {
     expect(false).toBeTruthy();
   }

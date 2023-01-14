@@ -36,3 +36,13 @@ npm run build
 You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+
+## Run App/Main-site
+
+This runs the app with the Firebase App Check Debug Token, which allows local development to be throttled.
+
+Local dev:
+
+```cli
+FB_APP_CHECK_DEBUG_TOKEN=<< TOKEN >> npm run dev
+```
