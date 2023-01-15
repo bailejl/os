@@ -3,31 +3,13 @@
   import Button from "$lib/components/Button.svelte";
   import TextField from "$lib/components/TextField.svelte";
   // import Logo from "$lib/components/Logo.svelte";
-  import firebaseFactory, {
-    firebaseUsernamePassowordLogin
-  } from "$lib/integrations/baas/firebase/firebase-integration";
-  import { browser } from "$app/environment";
-  import { info } from "$lib/utils/logger";
-  import { goto } from "$app/navigation";
-
-  import { userStore } from "sveltefire";
+  import { firebaseUsernamePassowordLogin } from "$lib/integrations/baas/firebase/firebase-integration";
 
   let emailEl: HTMLInputElement;
   let passwordEl: HTMLInputElement;
 
   async function login(event: SubmitEvent) {
     await firebaseUsernamePassowordLogin(emailEl.value, passwordEl.value);
-  }
-  if (browser) {
-    info("login page");
-    const auth = firebaseFactory.getFirebaseIntegration().auth;
-    const user = userStore(auth);
-
-    user.subscribe((user) => {
-      if (user) {
-        goto("/dashboard");
-      }
-    });
   }
 </script>
 

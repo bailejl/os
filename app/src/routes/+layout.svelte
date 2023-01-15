@@ -5,8 +5,10 @@
     FirebaseIntegration
   } from "$lib/integrations/baas/firebase/firebase-integration";
   import { browser } from "$app/environment";
+  import { userStore } from "sveltefire";
 
   import type { LayoutData } from "./$types";
+  import { goto } from "$app/navigation";
 
   export let data: LayoutData;
 
@@ -24,6 +26,14 @@
     }
 
     firebaseInstance = firebaseFactory.getFirebaseIntegration();
+    const user = userStore(firebaseInstance.auth);
+    user.subscribe((user) => {
+      if (user) {
+        goto("/dashboard");
+      } else {
+        goto("/login");
+      }
+    });
   }
 </script>
 

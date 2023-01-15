@@ -1,21 +1,19 @@
 import { expect, Locator, Page } from "@playwright/test";
+import { AppPage } from "./AppPage";
 import { VerifyPageLoad } from "./login-interfaces";
 
-export class DashboardPage implements VerifyPageLoad {
-  readonly page: Page;
+export class DashboardPage extends AppPage implements VerifyPageLoad {
   readonly logoImg: Locator;
-  readonly baseUrl: string;
   readonly searchInput: Locator;
 
   constructor(page: Page, baseUrl: string) {
-    this.page = page;
+    super(page, baseUrl);
     this.logoImg = page.locator("img", { hasText: "Your Company" });
     this.searchInput = page.getByLabel("Search");
-    this.baseUrl = baseUrl;
   }
 
   async goto() {
-    await this.page.goto(this.baseUrl + "/login");
+    await super.page.goto(super.baseUrl + "/login");
   }
 
   async verifyPageLoad(): Promise<void> {
