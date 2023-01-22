@@ -3,17 +3,14 @@
   "users": [
     {
       "localId": "OEMVZE6BcV9nE3UZkXJIxzgXcHSr",
-      "lastLoginAt": "1673576019523",
+      "createdAt": "1673575996812",
+      "lastLoginAt": "1673891623027",
       "displayName": "Jay Smith",
       "photoUrl": "https://0.gravatar.com/avatar/1f1374aa3f1a8fc814e9093876517da2",
-      "emailVerified": true,
-      "email": "jay.smith@goodtest.com",
-      "salt": "fakeSalt9LSJKg6LPSh9EOorlsVN",
       "passwordHash": "fakeHash:salt=fakeSalt9LSJKg6LPSh9EOorlsVN:password=testtest",
-      "passwordUpdatedAt": 1673575996812,
-      "validSince": "1673575996",
-      "mfaInfo": [],
-      "createdAt": "1673575996812",
+      "salt": "fakeSalt9LSJKg6LPSh9EOorlsVN",
+      "passwordUpdatedAt": 1673890100291,
+      "customAttributes": "{\"role\":\"admin\",\"tenantId\":\"test-6789\"} ",
       "providerUserInfo": [
         {
           "providerId": "password",
@@ -24,8 +21,11 @@
           "photoUrl": "https://0.gravatar.com/avatar/1f1374aa3f1a8fc814e9093876517da2"
         }
       ],
-      "customAttributes": "{\"role\":\"admin\",\"tenantId\":\"test-6789\"} ",
-      "lastRefreshAt": "2023-01-13T02:13:39.523Z"
+      "validSince": "1673890100",
+      "email": "jay.smith@goodtest.com",
+      "emailVerified": true,
+      "disabled": false,
+      "lastRefreshAt": "2023-01-16T19:47:38.270Z"
     }
   ]
 }

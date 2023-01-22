@@ -35,7 +35,6 @@
   let db: Firestore;
 
   if (browser) {
-    console.log("handbook page");
     firebaseInstance = firebaseFactory.getFirebaseIntegration();
     auth = firebaseInstance.auth;
     db = firebaseInstance.database;

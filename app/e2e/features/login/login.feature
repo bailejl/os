@@ -5,7 +5,7 @@ Feature: Sign Out & Login with email and password
     Then They see the "dashboard"
 
   Scenario: Fail to login with a non existent account
-    When "Tom (Non Account) Smith" logs in with email and password
+    When "Tom (No Account) Smith" logs in with email and password
     Then They see the "login"
 
   Scenario: Redirect to login on successful sign out

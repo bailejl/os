@@ -1,14 +1,14 @@
 [
   {
     "name": "Jay Smith",
-    "aliases": ["Tenant Admin"],
+    "aliases": ["Jay Smith - Tenant Admin for test-6789"],
     "email": "jay.smith@goodtest.com",
     "password": "testtest",
     "tenantId": "test-6789",
     "role": "admin"
   },
   {
-    "name": "Tom (Non Account) Smith",
+    "name": "Tom (No Account) Smith",
     "email": "test@brokentest.com",
     "password": "testtest"
   }

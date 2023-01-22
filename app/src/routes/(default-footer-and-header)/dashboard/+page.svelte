@@ -15,18 +15,15 @@
   import {
     // Bars3BottomLeftIcon,
     BellIcon,
-    CalendarIcon,
-    ChartBarIcon,
     FolderIcon,
     HomeIcon,
-    InboxIcon,
-    UsersIcon,
     XIcon,
     ChevronDoubleRightIcon
   } from "@rgossiaux/svelte-heroicons/solid";
   import { SearchIcon } from "@rgossiaux/svelte-heroicons/solid";
   import type { Auth } from "firebase/auth";
   import type { Firestore } from "firebase/firestore";
+  import { stringify } from "postcss";
   import { fade } from "svelte/transition";
   import { FirebaseApp, User } from "sveltefire";
 
@@ -35,7 +32,6 @@
   let db: Firestore;
 
   if (browser) {
-    console.log("dashboard page");
     firebaseInstance = firebaseFactory.getFirebaseIntegration();
     auth = firebaseInstance.auth;
     db = firebaseInstance.database;
@@ -45,12 +41,8 @@
     firebaseInstance.auth.signOut();
   }
   const navigation = [
-    { name: "Dashboard", href: "#", icon: HomeIcon, current: true },
-    { name: "Team", href: "#", icon: UsersIcon, current: false },
-    { name: "Projects", href: "#", icon: FolderIcon, current: false },
-    { name: "Calendar", href: "#", icon: CalendarIcon, current: false },
-    { name: "Documents", href: "#", icon: InboxIcon, current: false },
-    { name: "Reports", href: "#", icon: ChartBarIcon, current: false }
+    { name: "Dashboard", href: "/dashboard", icon: HomeIcon, current: true },
+    { name: "Handbook", href: "/handbook", icon: FolderIcon, current: false }
   ];
   const userNavigation = [
     { name: "Your Profile", href: "#" },
@@ -175,6 +167,7 @@
         <nav class="flex-1 space-y-1 px-2 pb-4">
           <FirebaseApp {auth} firestore={db}>
             <User let:user>
+              {console.log(JSON.stringify(user))}
               Hello {user.uid}
 
               <div slot="signedOut">You are signed out</div>
@@ -184,6 +177,7 @@
           {#each navigation as item (item.name)}
             <a
               href={item.href}
+              data-testid={"nav-link-" + item.name.toLowerCase()}
               class={classNames(
                 item.current
                   ? "bg-indigo-800 text-white"

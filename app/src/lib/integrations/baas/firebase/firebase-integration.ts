@@ -82,7 +82,6 @@ class FirebaseIntegrationFactory {
 
   getFirebaseIntegration(): FirebaseIntegration {
     if (FirebaseIntegrationFactory.firebaseIntegrationInstance === undefined) {
-      console.log("Loading Firebase");
       FirebaseIntegrationFactory.firebaseIntegrationInstance =
         new FirebaseIntegration();
     }
