@@ -30,35 +30,10 @@ module.exports.setup = async (data) => {
 };
 
 module.exports.teardown = async () => {
-  await testEnv.clearFirestore();
-  await testEnv.cleanup();
+  try {
+    await testEnv.clearFirestore();
+    await testEnv.cleanup();
+  } catch (error) {
+    console.warn(error);
+  }
 };
-
-expect.extend({
-  async toAllow(x) {
-    let pass = false;
-    try {
-      await firebase.assertSucceeds(x);
-      pass = true;
-    } catch (err) {}
-
-    return {
-      pass,
-      message: () => 'Expected Firebase operation to be allowed, but it failed'
-    };
-  }
-});
-
-expect.extend({
-  async toDeny(x) {
-    let pass = false;
-    try {
-      await firebase.assertFails(x);
-      pass = true;
-    } catch (err) {}
-    return {
-      pass,
-      message: () => 'Expected Firebase operation to be denied, but it was allowed'
-    };
-  }
-});

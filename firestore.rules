@@ -5,25 +5,62 @@ service cloud.firestore {
       allow read, write: if false;
     }
     match /core-rbac/{rbadId} {
-      allow read: if isSignedIn() && isDataInTheirTenant() && isDataInTheirRole()
+      allow read: if isSignedIn() && ((isDataInTheirTenant() && isDataInTheirRole()) || isOwowAdmin())
+      allow update: if isSignedIn() && isTenantAdmin() && failIfSettingTenantId()
+      allow write: if isSignedIn() && isOwowAdmin()
+    }
+    match /users/{uid} {
+      allow read: if isSignedIn() && isOwner(uid)
       allow write: if false
     }
 
     /// Functions ///
 
+    function failIfSettingTenantId() {
+      return !("tenantId" in incomingData())
+    }
+
+    function existingData() {
+      return resource.data
+    }
+
+    function incomingData() {
+      return request.resource.data
+    }
+
+    function isOwowAdmin() {
+      return  getUserData().roles.hasAny(['admin']) && getUserData().tenantId == 'owow'
+    }
+
+    function getUserData() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data
+    }
+
+    function isOwner(userId) {
+      return request.auth.id == userId
+    }
+
+  // function emailVerified() {
+    //   return request.auth.token.email_verified
+    // }
+
+    function isTenantAdmin() {
+      return  isDataInTheirTenant() && getUserData().roles.hasAny(['admin'])
+    }
+
     function isDataInTheirRole() {
-      return resource.data.role == request.auth.token.claim.role
+      return getUserData().roles.hasAny([existingData().role])
     }
 
     function isDataInTheirTenant() {
-      return resource.data.tenantId == request.auth.token.claim.tenantId
+      return existingData().tenantId == getUserData().tenantId
     }
 
     function isSignedIn() {
       return request.auth != null
     }
 
-    //function isOwner(userId){
+  //function isOwner(userId){
     //  return request.auth.uid == userId
     //}
   }
