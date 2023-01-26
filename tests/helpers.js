@@ -16,8 +16,6 @@ module.exports.setup = async (data) => {
 
   await testEnv.withSecurityRulesDisabled(async (noRulesContext) => {
     const db = await noRulesContext.firestore();
-    // const dbCollection = collection(db, collectionName);
-    // docId = await (await addDoc(dbCollection, testData)).id;
     if (data) {
       for (const key in data) {
         const ref = db.doc(key);

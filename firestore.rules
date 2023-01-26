@@ -10,8 +10,8 @@ service cloud.firestore {
       allow write: if isSignedIn() && isOwowAdmin()
     }
     match /users/{uid} {
-      allow read: if isSignedIn() && isOwner(uid)
-      allow write: if false
+      allow read: if isSignedIn() && isDataInTheirTenant()
+      allow write: if isSignedIn() && (isOwner(uid) || isOwowAdmin()) && failIfSettingTenantId()
     }
 
     /// Functions ///
@@ -37,7 +37,7 @@ service cloud.firestore {
     }
 
     function isOwner(userId) {
-      return request.auth.id == userId
+      return request.auth.uid == userId
     }
 
   // function emailVerified() {
@@ -59,9 +59,5 @@ service cloud.firestore {
     function isSignedIn() {
       return request.auth != null
     }
-
-  //function isOwner(userId){
-    //  return request.auth.uid == userId
-    //}
   }
 }

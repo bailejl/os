@@ -80,4 +80,17 @@ describe('RBAC Database Rules', () => {
       {}
     );
   });
+
+  test('logged out user cannot access record', async () => {
+    const alice = testEnv.unauthenticatedContext().firestore();
+    await assertFails(getDoc(alice.collection('core-rbac').doc('tenant6789Admin')), {});
+  });
+
+  test('logged out user cannot write record', async () => {
+    const alice = testEnv.unauthenticatedContext().firestore();
+    await assertFails(
+      setDoc(alice.collection('core-rbac').doc('tenant0000Admin'), { tenantId: '00000' }),
+      {}
+    );
+  });
 });
